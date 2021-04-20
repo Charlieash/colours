@@ -30,7 +30,7 @@ int main( )
     //createTrackbar("Low Value", "HSV Tester", &lowV, 255, NULL);
     //createTrackbar("High Value", "HSV Tester", &highV, 255, NULL);
 
-    Mat frame = imread("OpenCV_Logo.png"); // Open an image file and store in a new matrix variable
+    Mat frame = imread("RedApple.bmp"); // Open an image file and store in a new matrix variable
     std::cout << "R, G or B? ";
     std::cin >> colour;
     if(colour == "B"){
