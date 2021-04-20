@@ -1,0 +1,22 @@
+Settings for isolating colours:
+blue:
+	low hue: 120
+	high hue: 179
+	low sat: 0
+	high sat: 255
+	low value: 0
+	high value: 255
+green:
+	low hue: 35
+	high hue: 80
+	low sat: 0
+	high sat: 255
+	low value: 0
+	high value: 255
+red:
+	low hue: 0
+	high hue: 0
+	low sat: 255
+	high sat: 255
+	low value: 0
+	high value: 255	
