@@ -11,14 +11,14 @@ using namespace cv;
 using namespace std;
 Mat src;
 Mat src_gray;
-int thresh = 200;
+int thresh = 190;
 int max_thresh = 255;
 RNG rng(12345);
 void thresh_callback(int, void* );
 int main( int argc, char** argv )
 {
 
-    String imageName("RedCar.bmp"); // by default
+    String imageName("BlueCar.bmp"); // by default
     if (argc > 1)
     {
         imageName = argv[1];
@@ -53,16 +53,20 @@ void thresh_callback(int, void* )
     {
         cv::approxPolyDP(contours[i],approxedcontours[i], 10, true); // Approximate
         Point regionCentre = findContourCentre(contours[i]); // Calculate the centre point
-        if(regionCentre.x < smallestX && regionCentre.x > 0){
+        if(regionCentre.x < smallestX && regionCentre.x > 0)
+        {
             smallestX = regionCentre.x;
         };
-        if(regionCentre.y < smallestY && regionCentre.y > 0){
+        if(regionCentre.y < smallestY && regionCentre.y > 0)
+        {
             smallestY = regionCentre.y;
         };
-        if (regionCentre.y > largestY){
+        if (regionCentre.y > largestY)
+        {
             largestY = regionCentre.y;
         };
-        if (regionCentre.x > largestX){
+        if (regionCentre.x > largestX)
+        {
             largestX = regionCentre.x;
         };
     }
@@ -81,6 +85,74 @@ void thresh_callback(int, void* )
     namedWindow( "Contours", WINDOW_AUTOSIZE );
     imshow( "Contours", drawing );
     imshow("cropped",croppedImage);
+
+
+    std::string colour = "ble";
+    int i = 0, countBlue = 0, countGreen = 0, countRed = 0;
+    int lowH = 0, highH = 179, lowS = 0, highS = 255, lowV = 0, highV = 255;    // Initialise some variables for HSV limits
+
+
+    Mat frame = croppedImage; // Open an image file and store in a new matrix variable
+
+    for(i = 0; i< 3; i++)
+    {
+        if(i == 0)
+        {
+            lowH = 105, highH = 130, lowS = 0, highS = 255, lowV = 0, highV = 255;
+        }
+        else if(i == 1)
+        {
+            lowH = 30, highH = 55, lowS = 0, highS = 255, lowV = 0, highV = 255;
+        }
+        else if(i==2)
+        {
+            lowH = 0, highH = 26, lowS = 2, highS = 255, lowV = 0, highV = 253;
+        };
+        Mat frameHSV;       // Convert the frame to HSV and apply the limits
+        cvtColor(frame, frameHSV, COLOR_BGR2HSV);
+        inRange(frameHSV, Scalar(lowH, lowS, lowV), Scalar(highH, highS, highV), frameHSV);
+        Mat comparison;     // Join the two into a single image
+        cvtColor(frameHSV, frameHSV, COLOR_GRAY2BGR);   // In range returns the equivalent of a grayscale image so we need to convert this before concatenation
+        hconcat(frame, frameHSV, comparison);
+        for(int rownumber = 0; rownumber < frameHSV.rows; rownumber++)
+        {
+            uchar* p = frameHSV.ptr<uchar>(rownumber);
+            for(int x = 0; x < frameHSV.cols; x++)
+            {
+                uchar pixel = p[x]; // read the data into pixel
+                if(pixel == 255 && i ==0)
+                {
+                    countBlue = countBlue + 1;
+                }
+                else if(pixel == 255 && i ==1)
+                {
+                    countGreen = countGreen + 1;
+                }
+                else if(pixel == 255 && i ==2)
+                {
+                    countRed = countRed + 1;
+                };
+            }
+        }
+    }
+    if(countRed > countGreen && countRed > countBlue)
+    {
+        std::cout << "Most Red";
+    }
+    else if(countGreen > countRed && countGreen > countBlue)
+    {
+        std::cout << "Most Green";
+    }
+    else if(countBlue > countRed && countBlue > countGreen)
+    {
+        std::cout << "Most Blue";
+    }
+    else
+    {
+        std::cout << "AAAAAAAAAAAAAAA";
+    };
+
+
 }
 
 
