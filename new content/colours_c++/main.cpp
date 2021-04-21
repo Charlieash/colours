@@ -19,7 +19,7 @@ int main( )
     createTrackbar("Low Value", "HSV Tester", &lowV, 255, NULL);
     createTrackbar("High Value", "HSV Tester", &highV, 255, NULL);
 
-    Mat frame = imread("RedCar.bmp"); // Open an image file and store in a new matrix variable
+    Mat frame = imread("OpenCV_Logo.png"); // Open an image file and store in a new matrix variable
 
     while(1)    // Main loop to perform image processing
     {

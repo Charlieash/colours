@@ -37,7 +37,7 @@ int main( )
         }
         else if(i==2)
         {
-            lowH = 0, highH = 0, lowS = 255, highS = 255, lowV = 0, highV = 255;
+            lowH = 0, highH = 15, lowS = 0, highS = 255, lowV = 0, highV = 253;
         };
         Mat frameHSV;       // Convert the frame to HSV and apply the limits
         cvtColor(frame, frameHSV, COLOR_BGR2HSV);

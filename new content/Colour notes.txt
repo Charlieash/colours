@@ -14,9 +14,9 @@ green:
 	low value: 0
 	high value: 255
 red:
-	low hue: 0
-	high hue: 0
-	low sat: 255
+	low hue: 7
+	high hue: 179
+	low sat: 0
 	high sat: 255
 	low value: 0
 	high value: 255	
