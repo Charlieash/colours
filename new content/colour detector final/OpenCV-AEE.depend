@@ -861,17 +861,7 @@
 	<string>
 	<windows.h>
 
-1619018163 source:c:\users\eeyca6\documents\github\colours\new content\contours\main.cpp
-	<stdio.h>
-	"opencv2/imgcodecs.hpp"
-	"opencv2/highgui.hpp"
-	"opencv2/imgproc.hpp"
-	<iostream>
-	"opencv_aee.hpp"
-	"opencv_aee.cpp"
-	"main.hpp"
-
-1619018729 source:c:\users\eeyca6\documents\github\colours\new content\colour detector final\main.cpp
+1619021367 source:c:\users\eeyca6\documents\github\colours\new content\contours\main.cpp
 	<stdio.h>
 	"opencv2/imgcodecs.hpp"
 	"opencv2/highgui.hpp"
