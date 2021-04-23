@@ -68,13 +68,14 @@ void thresh_callback(int, void* )
     }
     std::cout << largestY << " " << smallestX<< "\n";
     std::cout << smallestY << " " << largestX;
+    int a;
     for( size_t i = 0; i< contours.size(); i++ )
     {
         Scalar color = 255;
         drawContours( drawing, contours, (int)i, color, 2, 8, hierarchy, 0, Point() );
-        std::cout<<(int)i<< " ";
+        a = (int)i;
     }
-
+    std:cout<< (int)a;
     Mat croppedImage;
     int height = largestY-smallestY ;
     int width = largestX - smallestX;
