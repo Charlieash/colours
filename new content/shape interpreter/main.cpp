@@ -71,7 +71,7 @@ void thresh_callback(int, void* )
     for( size_t i = 0; i< contours.size(); i++ )
     {
         Scalar color = 255;
-        drawContours( drawing, approxedcontours, (int)i, color, 2, 8, hierarchy, 0, Point() );
+        drawContours( drawing, contours, (int)i, color, 2, 8, hierarchy, 0, Point() );
     }
 
     Mat croppedImage;
