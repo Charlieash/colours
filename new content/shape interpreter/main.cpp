@@ -73,7 +73,7 @@ void thresh_callback(int, void* )
     {
         Scalar color = 255;
         drawContours( drawing, contours, (int)i, color, 2, 8, hierarchy, 0, Point() );
-        a = (int)i;//test
+        a = (int)i;//tes
     }
     std:cout<< (int)a;
     Mat croppedImage;
