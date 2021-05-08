@@ -23,17 +23,17 @@ int main( )
     int lowH = 0, highH = 179, lowS = 0, highS = 255, lowV = 0, highV = 255;    // Initialise some variables for HSV limits
 
 
-    Mat frame = imread("RedApple.bmp"); // Open an image file and store in a new matrix variable
+    Mat frame = imread("GreenApple.bmp"); // Open an image file and store in a new matrix variable
 
     for(i = 0; i< 3; i++)
     {
         if(i == 0)
         {
-            lowH = 120, highH = 179, lowS = 0, highS = 255, lowV = 0, highV = 255;
+            lowH = 90, highH = 179, lowS = 0, highS = 255, lowV = 0, highV = 255;
         }
         else if(i == 1)
         {
-            lowH = 35, highH = 80, lowS = 0, highS = 255, lowV = 0, highV = 255;
+            lowH = 35, highH = 50, lowS = 0, highS = 255, lowV = 0, highV = 255;
         }
         else if(i==2)
         {
