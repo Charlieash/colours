@@ -30,14 +30,14 @@ int main( )
     //createTrackbar("Low Value", "HSV Tester", &lowV, 255, NULL);
     //createTrackbar("High Value", "HSV Tester", &highV, 255, NULL);
 
-    Mat frame = imread("RedApple.bmp"); // Open an image file and store in a new matrix variable
+    Mat frame = imread("BlueApple.bmp"); // Open an image file and store in a new matrix variable
     std::cout << "R, G or B? ";
     std::cin >> colour;
     if(colour == "B"){
-        lowH = 120, highH = 179, lowS = 0, highS = 255, lowV = 0, highV = 255;
+        lowH = 130, highH = 179, lowS = 0, highS = 255, lowV = 0, highV = 255;
     }
     else if(colour == "G"){
-        lowH = 35, highH = 80, lowS = 0, highS = 255, lowV = 0, highV = 255;
+        lowH = 35, highH = 50, lowS = 0, highS = 255, lowV = 0, highV = 255;
     }
     else if(colour == "R"){
         lowH = 0, highH = 0, lowS = 255, highS = 255, lowV = 0, highV = 255;
