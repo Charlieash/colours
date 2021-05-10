@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1620689327 source:d:\colours\colours\new content\image comparing\main.cpp
+	<stdio.h>
+	<iostream>
+	"opencv2/imgcodecs.hpp"
+	"opencv2/highgui.hpp"
+	"opencv2/imgproc.hpp"
+	"opencv_aee.cpp"
+

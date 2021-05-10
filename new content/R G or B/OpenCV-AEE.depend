@@ -860,3 +860,11 @@
 	"opencv2/imgproc.hpp"
 	<string>
 
+1619710847 source:d:\colours\colours\new content\r g or b\main.cpp
+	<stdio.h>
+	<iostream>
+	"opencv2/core.hpp"
+	"opencv2/highgui.hpp"
+	"opencv2/imgproc.hpp"
+	<string>
+
