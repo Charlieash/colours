@@ -1,5 +1,40 @@
 #include <Wire.h>
 
+void clockwise() {
+  digitalWrite(PWMa, HIGH);
+  digitalWrite(PWMb, LOW);
+  digitalWrite(PWMc, HIGH);
+  digitalWrite(PWMd, LOW);
+}
+
+void anticlockwise() {
+  digitalWrite(PWMa, LOW);
+  digitalWrite(PWMb, HIGH);
+  digitalWrite(PWMc, LOW);
+  digitalWrite(PWMd, HIGH);
+}
+
+void forwards() {
+  digitalWrite(PWMa, LOW);
+  digitalWrite(PWMb, HIGH);
+  digitalWrite(PWMc, HIGH);
+  digitalWrite(PWMd, LOW);
+}
+
+void backwards() {
+  digitalWrite(PWMa, HIGH);
+  digitalWrite(PWMb, LOW);
+  digitalWrite(PWMc, LOW);
+  digitalWrite(PWMd, HIGH);
+}
+
+void Stop() {
+  digitalWrite(PWMa, LOW);
+  digitalWrite(PWMb, LOW);
+  digitalWrite(PWMc, LOW);
+  digitalWrite(PWMd, LOW);
+}
+
 void setup() {
   Serial.begin(9600);// open the serial port at 9600 bps:
   Wire.begin(0x07); //Set Arduino up as an I2C slave at address 0x07
@@ -32,4 +67,5 @@ void receiveEvent(int numBytes){
   //Print the Int out.
   Serial.print("Received Number: "); 
   Serial.println(receive_int);
+  
 }
