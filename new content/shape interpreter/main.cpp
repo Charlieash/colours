@@ -30,6 +30,7 @@ int main( int argc, char** argv )
         return -1;
     }
     cvtColor( src, src_gray, COLOR_BGR2GRAY );
+
     blur( src_gray, src_gray, Size(3,3) );
     const char* source_window = "Source";
     namedWindow( source_window, WINDOW_AUTOSIZE );
@@ -45,43 +46,22 @@ void thresh_callback(int, void* )
     int largestY = 0, largestX =0;
     vector<vector<Point> > contours;
     vector<Vec4i> hierarchy;
-    Canny( src_gray, canny_output, thresh, thresh*2, 3 );
+    Canny( src_gray, canny_output, thresh, thresh*2, 5 );
     findContours( canny_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0) );
     Mat drawing = Mat::zeros( canny_output.size(), CV_8UC3 );
     std::vector< std::vector<cv::Point> > approxedcontours(contours.size()); // Array
-    for(int i = 0; i < contours.size(); i++)
-    {
-        cv::approxPolyDP(contours[i],approxedcontours[i], 10, true); // Approximate
-        Point regionCentre = findContourCentre(contours[i]); // Calculate the centre point
-        if(regionCentre.x < smallestX && regionCentre.x > 0){
-            smallestX = regionCentre.x;
-        };
-        if(regionCentre.y < smallestY && regionCentre.y > 0){
-            smallestY = regionCentre.y;
-        };
-        if (regionCentre.y > largestY){
-            largestY = regionCentre.y;
-        };
-        if (regionCentre.x > largestX){
-            largestX = regionCentre.x;
-        };
-    }
-    std::cout << largestY << " " << smallestX<< "\n";
-    std::cout << smallestY << " " << largestX;
     int a;
-    for( size_t i = 0; i< contours.size(); i++ )
+    for( size_t i = 0; i< approxedcontours.size(); i++ )
     {
         Scalar color = 255;
-        drawContours( drawing, contours, (int)i, color, 2, 8, hierarchy, 0, Point() );
         a = (int)i;//test
+        drawContours( drawing, contours, (int)i, color, 2, 8, hierarchy, 0, Point() );
     }
-    std:cout<< (int)a;
-    Mat croppedImage;
-    int height = largestY-smallestY ;
-    int width = largestX - smallestX;
-    croppedImage = src(Rect(smallestX,smallestY,width,height));
+
+
     namedWindow( "Contours", WINDOW_AUTOSIZE );
     imshow( "Contours", drawing );
+    std:cout<< (int)a;
 }
 
 

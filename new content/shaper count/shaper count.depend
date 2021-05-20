@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1621435262 source:d:\colours\colours\new content\shaper count\main.cpp
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<cmath>
+	<iostream>
+

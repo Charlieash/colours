@@ -11,14 +11,14 @@ using namespace cv;
 using namespace std;
 Mat src;
 Mat src_gray;
-int thresh = 190;
+int thresh = 230;
 int max_thresh = 255;
 RNG rng(12345);
 void thresh_callback(int, void* );
 int main( int argc, char** argv )
 {
 
-    String imageName("ShapeCounter.png"); // by default
+    String imageName("RedApple.bmp"); // by default
     if (argc > 1)
     {
         imageName = argv[1];
@@ -98,15 +98,15 @@ void thresh_callback(int, void* )
     {
         if(i == 0)
         {
-            lowH = 110, highH = 130, lowS = 0, highS = 255, lowV = 0, highV = 255;
+            lowH = 80, highH = 124, lowS = 64, highS = 255, lowV = 55, highV = 255;
         }
         else if(i == 1)
         {
-            lowH = 30, highH = 40, lowS = 0, highS = 255, lowV = 0, highV = 255;
+            lowH = 35, highH = 74, lowS = 42, highS = 255, lowV = 27, highV = 255;
         }
         else if(i==2)
         {
-            lowH = 0, highH = 26, lowS = 2, highS = 255, lowV = 0, highV = 253;
+            lowH = 0, highH = 7, lowS = 95, highS = 255, lowV = 55, highV = 255;
         };
         Mat frameHSV;       // Convert the frame to HSV and apply the limits
         cvtColor(frame, frameHSV, COLOR_BGR2HSV);

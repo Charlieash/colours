@@ -871,3 +871,13 @@
 	"opencv_aee.cpp"
 	"main.hpp"
 
+1621431922 source:d:\colours\colours\new content\colour detector final\main.cpp
+	<stdio.h>
+	"opencv2/imgcodecs.hpp"
+	"opencv2/highgui.hpp"
+	"opencv2/imgproc.hpp"
+	<iostream>
+	"opencv_aee.hpp"
+	"opencv_aee.cpp"
+	"main.hpp"
+

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1620689327 source:d:\colours\colours\new content\image comparing\main.cpp
+1620748014 source:d:\colours\colours\new content\image comparing\main.cpp
 	<stdio.h>
 	<iostream>
 	"opencv2/imgcodecs.hpp"
